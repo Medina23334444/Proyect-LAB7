@@ -11,6 +11,7 @@ import os
 import logging
 from flask import Flask, jsonify, render_template, request
 
+
 # ---------------------------------------------------------------------------
 # Configuración
 # ---------------------------------------------------------------------------
@@ -20,12 +21,15 @@ class Config:
     TESTING = False
     APP_PORT = int(os.getenv("APP_PORT", 5000))
 
+
 class DevelopmentConfig(Config):
     DEBUG = True
+
 
 class ProductionConfig(Config):
     # Podríamos agregar configuraciones extras específicas de producción
     pass
+
 
 def create_app():
     """Factory pattern para crear la app con la configuración correcta."""
@@ -77,8 +81,8 @@ def create_app():
 
     return app
 
-# Punto de entrada para `flask run` o `python app.py`
+
+application = create_app()
 if __name__ == "__main__":
-    application = create_app()
     port = application.config.get("APP_PORT", 5000)
     application.run(host="0.0.0.0", port=port)
