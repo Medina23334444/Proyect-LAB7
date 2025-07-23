@@ -83,6 +83,7 @@ def create_app():
 
 
 application = create_app()
+
 if __name__ == "__main__":
     port = application.config.get("APP_PORT", 5000)
     application.run(host="0.0.0.0", port=port)
