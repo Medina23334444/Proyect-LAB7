@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>mi-app-web</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
+      <div class="container">
+        <a class="navbar-brand" href="#">mi-app-web</a>
+      </div>
+    </nav>
+
+    <main class="container">
+        <div class="p-5 mb-4 bg-white rounded-3 shadow-sm">
+            <div class="container-fluid py-5">
+                <h1 class="display-5 fw-bold">{{ message }}</h1>
+                <p class="col-md-8 fs-4">Este es un pequeño proyecto Flask ejecutándose dentro de Docker 😎.</p>
+                <a href="/api/health" class="btn btn-primary btn-lg" type="button">Ver /api/health</a>
+            </div>
+        </div>
+
+        <footer class="pt-3 mt-4 text-muted border-top">
+            © {{ 2025 }} mi-app-web
+        </footer>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

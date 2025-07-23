@@ -1,0 +1,20 @@
+version: "3.9"
+services:
+  web:
+    build: .
+    image: mi-app-web:latest
+    container_name: mi-app-web
+    ports:
+      - "8080:5000"     # Host:Container
+    environment:
+      FLASK_ENV: ${FLASK_ENV:-development}
+      APP_PORT: 5000
+      WORKERS: 2         # Usado por gunicorn en producción
+    volumes:
+      - ./:/app          # Para desarrollo: monta el código local
+    command: >
+      sh -c "if [ \"$FLASK_ENV\" = \"development\" ]; then
+                flask --app app:create_app run --host=0.0.0.0 --port=5000;
+              else
+                gunicorn -w ${WORKERS:-2} -b 0.0.0.0:5000 app:application;
+              fi"
